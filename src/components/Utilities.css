@@ -1,0 +1,73 @@
+@import '../css/variables.css';
+
+@component utilities {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50px;
+  padding: 15px 0;
+
+  @modifier control {
+    margin-bottom: 7.5px;
+  }
+
+  @modifier play {
+    margin-bottom: 10px;
+  }
+
+  @modifier favorite {
+    fill: $pink;
+  }
+
+  @modifier repeating {
+    fill: $dark_green;
+  }
+
+  @modifier btn-green {
+    transition: .5s all ease;
+    &:hover {
+      fill: color($dark_green saturation(10%));
+    }
+  }
+
+  @modifier btn-pink {
+    transition: .5s all ease;
+    &:hover {
+      fill: color($pink saturation(10%));
+    }
+  }
+
+  @descendent social {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    * {
+      margin-top: 15px;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.splash-anim {
+  animation: splash .5s ease-in-out;
+}
+
+@keyframes splash {
+    from {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1, 1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}

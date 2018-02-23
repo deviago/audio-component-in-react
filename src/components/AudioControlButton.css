@@ -1,0 +1,57 @@
+@import '../css/variables.css';
+
+$trackSize: 40px;
+
+@component audio-control {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  @modifier btn {
+    transition: .25s all ease;
+    width: 28px;
+    height: 28px;
+    background-color: $base_bg_color;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: color($base_bg_color tint(30%));
+    }
+    &:disabled {
+      background-color: color($base_bg_color tint(82%));
+    }
+  }
+
+  @modifier progress-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  .rc-progress-circle {
+    width: $trackSize;
+    height: $trackSize;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @modifier play {
+    margin-top: 3px;
+    margin-left: 1px;
+  }
+
+}
+
+.disabled {
+  pointer-events: none;
+}
